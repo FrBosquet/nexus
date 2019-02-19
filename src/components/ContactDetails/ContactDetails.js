@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import Icon from '../Common/Icon';
 import Link from '../Common/Link';
 
+import Contacts from '../../services/contacts';
+
 const Container = styled('section')``;
 const Header = styled('header')``;
 
@@ -16,17 +18,31 @@ class ContactDetails extends Component {
 
   static propTypes = {
     className: PropTypes.string,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
   };
 
   state = {
-    data: { name: '[name]' },
+    contact: null,
   };
 
-  componentDidMount() {}
+  async componentDidMount() {
+    const {
+      match: {
+        params: { id },
+      },
+    } = this.props;
+    const contact = await Contacts.read(id);
+    console.log(contact);
+    this.setState({ contact });
+  }
 
   render() {
     const { className } = this.props;
-    const { data } = this.state;
+    const { contact } = this.state;
 
     return (
       <article className={className}>
@@ -34,7 +50,7 @@ class ContactDetails extends Component {
           <Link to="/">
             <Icon>arrow_back_ios</Icon>
           </Link>
-          {data.name}
+          {contact && contact.email}
         </Header>
         <Container>You need to implement the view here</Container>
       </article>
