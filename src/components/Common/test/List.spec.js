@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-testing-library';
 
-import { List } from 'Components/List';
+import { List } from '../List';
 
 describe('<List />', () => {
   it('renders by default', () => {
