@@ -4,8 +4,8 @@ import { Route } from 'react-router-dom';
 
 import AddressBook from './AddressBook';
 import ContactDetails from './ContactDetails';
-import Empty from './Empty';
-import Router from './Router';
+import Empty from './Common/Empty';
+import Router from './Common/Router';
 import Theme from './Theme';
 
 const App = () => (

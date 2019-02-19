@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import ContactList from './ContactList';
-import Layout from './Layout';
-import StatusBar from './StatusBar';
+import Layout from './Common/Layout';
+import StatusBar from './Common/StatusBar';
 
 import Contacts from '../services/contacts';
 

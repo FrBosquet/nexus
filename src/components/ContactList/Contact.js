@@ -3,8 +3,8 @@ import { rgba } from 'polished';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Avatar from '../Avatar';
-import Link from '../Link';
+import Avatar from './Avatar';
+import Link from '../Common/Link';
 
 const Container = styled('div')``;
 const Name = styled('span')``;
