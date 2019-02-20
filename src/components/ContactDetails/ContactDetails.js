@@ -31,14 +31,33 @@ class ContactDetails extends Component {
     contact: null,
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     const {
       match: {
         params: { id },
       },
     } = this.props;
+    this.refreshContact(id);
+  }
+
+  componentDidUpdate(prevProps) {
+    const {
+      match: {
+        params: { id: currentId },
+      },
+    } = this.props;
+    const {
+      match: {
+        params: { id: prevId },
+      },
+    } = prevProps;
+
+    if (currentId !== prevId) this.refreshContact(currentId);
+  }
+
+  async refreshContact(id) {
+    this.setState({ contact: null });
     const contact = await Contacts.read(id);
-    console.log(contact);
     this.setState({ contact });
   }
 
