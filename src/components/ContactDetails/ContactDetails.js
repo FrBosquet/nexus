@@ -71,6 +71,8 @@ export default styled(ContactDetails)`
   width: 100%;
   //
   ${Header} {
+    position: absolute;
+
     ${props => props.theme['--font-extra-large']};
     align-items: center;
     display: flex;
@@ -98,5 +100,9 @@ export default styled(ContactDetails)`
     border-left: 1px solid ${props => rgba(props.theme['--color-dark'], 0.1)};
     left: 32rem;
     width: calc(100% - 32rem);
+
+    ${Header} {
+      position: relative;
+    }
   }
 `;

@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Image = styled('img')``;
-const CardTitle = styled('h2')``;
-const Section = styled('section')``;
+import CardSection from './CardSection';
+
+const Header = styled('div')``;
+const HeaderImage = styled('img')``;
+const HeaderTitle = styled('h1')``;
 const SectionItem = styled('div')``;
 const SectionTitle = styled('h4')``;
 const SectionSubtitle = styled('h5')``;
@@ -19,9 +21,11 @@ const ContactCard = ({
   location: { street, postcode, city },
 }) => (
   <article className={className}>
-    <Image src={picture} />
-    <CardTitle>{`${first} ${last}`}</CardTitle>
-    <Section>
+    <Header>
+      <HeaderTitle>{`${first} ${last}`}</HeaderTitle>
+      <HeaderImage src={picture} />
+    </Header>
+    <CardSection icon="phone">
       {cell && (
         <SectionItem>
           <SectionTitle>{cell}</SectionTitle>
@@ -34,19 +38,19 @@ const ContactCard = ({
           <SectionSubtitle>Home</SectionSubtitle>
         </SectionItem>
       )}
-    </Section>
-    <Section>
+    </CardSection>
+    <CardSection icon="email">
       <SectionItem>
         <SectionTitle>{email}</SectionTitle>
         <SectionSubtitle>Personal</SectionSubtitle>
       </SectionItem>
-    </Section>
-    <Section>
+    </CardSection>
+    <CardSection icon="home">
       <SectionItem>
         <SectionTitle>{`${street}, ${postcode} ${city}`}</SectionTitle>
         <SectionSubtitle>Home</SectionSubtitle>
       </SectionItem>
-    </Section>
+    </CardSection>
   </article>
 );
 
@@ -76,8 +80,70 @@ ContactCard.defaultProps = {
 };
 
 export default styled(ContactCard)`
-  border: 1px solid black;
-  box-shadow: 0px 0px 50px 0px black;
-  margin: auto;
-  width: 460px;
+  width: 100%;
+
+  animation-name: fade;
+  animation-duration: 0.5s;
+
+  ${Header} {
+    ${HeaderImage} {
+      border-bottom: 1px solid ${props => props.theme['--color-primary']};
+      height: 32rem;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    ${HeaderTitle} {
+      color: white;
+      padding: 1.5rem;
+      position: absolute;
+      text-shadow: 1px 1px black;
+      top: 26rem;
+    }
+  }
+
+  ${CardSection} {
+    ${SectionTitle} {
+      color: ${props => props.theme['--color-primary']};
+      text-align: right;
+    }
+
+    ${SectionSubtitle} {
+      color: ${props => props.theme['--color-secondary']};
+      text-align: right;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid ${props => props.theme['--color-secondary']};
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+
+    to {
+      opacity: 100;
+      transform: translateY(0px);
+    }
+  }
+
+  @media (${props => props.theme['--screen-medium']}) {
+    border: 1px solid ${props => props.theme['--color-primary']};
+    box-shadow: 0px 0px 50px 0px ${props => props.theme['--color-dark']};
+    margin: auto;
+    width: 46rem;
+
+    ${Header} {
+      ${HeaderImage} {
+        height: 15rem;
+      }
+
+      ${HeaderTitle} {
+        top: 15rem;
+      }
+    }
+  }
 `;
