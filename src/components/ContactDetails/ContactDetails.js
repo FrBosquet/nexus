@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import Icon from '../Common/Icon';
 import Link from '../Common/Link';
 
+import ContactCard from './ContactCard';
+
 import Contacts from '../../services/contacts';
 
 const Container = styled('section')``;
@@ -50,9 +52,12 @@ class ContactDetails extends Component {
           <Link to="/">
             <Icon>arrow_back_ios</Icon>
           </Link>
-          {contact && contact.email}
         </Header>
-        <Container>You need to implement the view here</Container>
+        {contact ? (
+          <ContactCard {...contact} />
+        ) : (
+          <Container>Loading...</Container>
+        )}
       </article>
     );
   }
