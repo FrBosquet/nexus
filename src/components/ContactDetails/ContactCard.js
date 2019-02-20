@@ -68,7 +68,7 @@ ContactCard.propTypes = {
   email: PropTypes.string,
   location: PropTypes.shape({
     street: PropTypes.string,
-    postcode: PropTypes.string,
+    postcode: PropTypes.number,
     city: PropTypes.string,
   }).isRequired,
 };
@@ -98,7 +98,7 @@ export default styled(ContactCard)`
       padding: 1.5rem;
       position: absolute;
       text-shadow: 1px 1px black;
-      top: 26rem;
+      margin-top: 26rem;
     }
   }
 
@@ -142,7 +142,7 @@ export default styled(ContactCard)`
       }
 
       ${HeaderTitle} {
-        top: 15rem;
+        margin-top: 10rem;
       }
     }
   }
