@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup } from 'react-testing-library';
+import { render, cleanup, waitForElement } from 'react-testing-library';
 
 import ContactDetails from '../ContactDetails';
 import withProvider from '../../testUtils/hocs';
@@ -45,5 +45,22 @@ describe('Contact details', () => {
     const newProps = { match: { params: { id: 'id1' } } };
     rerender(<Enhanced {...newProps} />);
     expect(Contact.read).toHaveBeenCalledTimes(1);
+  });
+
+  it('renders a "Loading..." container while waiting from service data', () => {
+    const { getByText } = render(<Enhanced {...props} />);
+    expect(getByText('Loading...')).toBeDefined();
+  });
+
+  it('renders a ContactCard with the provided contact data', async () => {
+    Contact.read.mockReturnValueOnce({
+      name: { first: 'Fran', last: 'Bosquet' },
+      picture: { large: 'url' },
+      cell: '555-555-555',
+      location: { street: 'Fake Street 123' },
+    });
+    const { getByText } = render(<Enhanced {...props} />);
+    await waitForElement(() => getByText('Fran Bosquet'));
+    expect(getByText('Fran Bosquet')).toBeDefined();
   });
 });
