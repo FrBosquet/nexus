@@ -52,7 +52,8 @@
     "format": "prettier --write \"**/*.+(js|json|md|yml)\"",
     "lint": "eslint \"src/**/*.js\" --fix || echo 'Check your code!'",
     "start": "webpack-dev-server",
-    "test": "jest --silent"
+    "test": "jest --silent",
+    "tdd": "jest --watch"
   },
   "version": "1.0.0"
 }

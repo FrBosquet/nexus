@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact details renders by default 1`] = `
+<article
+  class="sc-gqjmRU aniYO"
+>
+  <header
+    class="sc-gZMcBi giNnHm"
+  >
+    <a
+      class=""
+      href="/"
+    >
+      <i
+        class="sc-bdVaJa bDWFJH material-icons"
+      >
+        arrow_back_ios
+      </i>
+    </a>
+  </header>
+  <section
+    class="sc-iwsKbI jQhHGA"
+  >
+    Loading...
+  </section>
+</article>
+`;
