@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import ContactList from './ContactList';
+import SearchBar from './ContactList/SearchBar';
 import Layout from './Common/Layout';
 import StatusBar from './Common/StatusBar';
 
@@ -14,16 +15,27 @@ class AddressBook extends Layout {
     className: PropTypes.string,
   };
 
-  state = { contacts: [] };
+  state = { contacts: [], filter: '' };
 
   async componentDidMount() {
     this.setState({ contacts: await Contacts.read() });
   }
 
+  getFilteredList() {
+    const { contacts, filter } = this.state;
+    const regexp = new RegExp(filter, 'i');
+
+    return contacts.filter(({ name: { first, last } }) =>
+      regexp.test(`${first} ${last}`),
+    );
+  }
+
+  updateFilter = e => this.setState({ filter: e.target.value });
+
   render() {
     const { className } = this.props;
-    const { contacts } = this.state;
-
+    const { filter } = this.state;
+    const contacts = this.getFilteredList();
     const element = super.render();
 
     if (!element) {
@@ -33,6 +45,7 @@ class AddressBook extends Layout {
     return (
       <main className={className}>
         <StatusBar />
+        <SearchBar value={filter} onChange={this.updateFilter} />
         <ContactList items={contacts} />
         {element}
       </main>
@@ -40,4 +53,6 @@ class AddressBook extends Layout {
   }
 }
 
-export default styled(AddressBook)``;
+export default styled(AddressBook)`
+  padding-top: 5rem;
+`;

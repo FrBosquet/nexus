@@ -22,17 +22,13 @@ StatusBar.propTypes = {
 };
 
 export default styled(StatusBar)`
-  background-color: ${props => rgba(props.theme['--color-primary'], 0.9)};
+  background-color: ${props => rgba(props.theme['--color-main'], 0.9)};
   color: ${props => props.theme['--color-light']};
   height: 2.5rem;
   padding: 0 0.4rem;
   position: fixed;
   top: 0;
   width: 100%;
-
-  & + * {
-    padding-top: 2.5rem;
-  }
 
   ${Icon} {
     color: ${props => props.theme['--color-light']};
