@@ -47,9 +47,9 @@ describe('Contact details', () => {
     expect(Contact.read).toHaveBeenCalledTimes(1);
   });
 
-  it('renders a "Loading..." container while waiting from service data', () => {
-    const { getByText } = render(<Enhanced {...props} />);
-    expect(getByText('Loading...')).toBeDefined();
+  it('renders a Spinner while waiting from service data', () => {
+    const { getByTestId } = render(<Enhanced {...props} />);
+    expect(getByTestId('spinner')).toBeDefined();
   });
 
   it('renders a ContactCard with the provided contact data', async () => {

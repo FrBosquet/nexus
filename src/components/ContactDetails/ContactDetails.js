@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import Icon from '../Common/Icon';
 import Link from '../Common/Link';
+import Spinner from '../Common/Spinner';
 
 import ContactCard from './ContactCard';
 
@@ -75,7 +76,9 @@ class ContactDetails extends Component {
         {contact ? (
           <ContactCard {...contact} />
         ) : (
-          <Container>Loading...</Container>
+          <Container>
+            <Spinner />
+          </Container>
         )}
       </article>
     );
