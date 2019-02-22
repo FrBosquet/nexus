@@ -62,7 +62,9 @@ const service = {
       await this.fetch();
     }
 
-    const temporary = Object.values(this.memory);
+    const temporary = Object.values(this.memory).sort((a, b) =>
+      a.name.first > b.name.first ? 1 : -1,
+    );
 
     await sleep();
 

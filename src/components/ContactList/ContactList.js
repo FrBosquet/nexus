@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Contact from './Contact';
+import MaybeContact from './MaybeContact';
 import List from '../Common/List';
 
 const ContactList = ({ className, items }) => (
-  <List className={className} items={items} template={Contact} />
+  <List className={className} items={items} template={MaybeContact} />
 );
 
 ContactList.defaultProps = {

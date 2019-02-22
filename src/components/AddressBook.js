@@ -9,6 +9,9 @@ import StatusBar from './Common/StatusBar';
 
 import Contacts from '../services/contacts';
 
+const getLast = arr => arr[arr.length - 1];
+const getInitial = contact => contact.name.first.slice(0, 1);
+
 class AddressBook extends Layout {
   static propTypes = {
     ...Layout.propTypes,
@@ -25,9 +28,30 @@ class AddressBook extends Layout {
     const { contacts, filter } = this.state;
     const regexp = new RegExp(filter, 'i');
 
-    return contacts.filter(({ name: { first, last } }) =>
-      regexp.test(`${first} ${last}`),
-    );
+    return contacts
+      .filter(({ name: { first, last } }) => regexp.test(`${first} ${last}`))
+      .reduce((acc, contact, _, arr) => {
+        // No contacts, no headers
+        if (arr.length === 0) {
+          return acc;
+        }
+
+        // First header with first contact initial
+        if (acc.length === 0) {
+          const header = getInitial(arr[0]);
+          return [{ header }, contact];
+        }
+
+        // On contact initial change, add header for the last one initial
+        const lastInitial = getInitial(getLast(acc));
+        const currentInitial = getInitial(contact);
+        if (lastInitial !== currentInitial) {
+          return [...acc, { header: currentInitial }, contact];
+        }
+
+        // Base case, no header
+        return [...acc, contact];
+      }, []);
   }
 
   updateFilter = e => this.setState({ filter: e.target.value });
