@@ -29,6 +29,7 @@ export default styled(StatusBar)`
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 100;
 
   ${Icon} {
     color: ${props => props.theme['--color-light']};
