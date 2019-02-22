@@ -21,16 +21,17 @@ SearchBar.defaultProps = {
 };
 
 export default styled(SearchBar)`
+  position: fixed;
+  top: 2.5rem;
+  width: 100%;
+
   i {
     color: ${props => props.theme['--color-main']};
     position: absolute;
-    top: 2.5rem;
     right: 1rem;
   }
 
   input {
-    position: fixed;
-    top: 2.5rem;
     width: 100%;
     padding: 0.5rem;
     border: none;
@@ -43,12 +44,10 @@ export default styled(SearchBar)`
   }
 
   @media (${props => props.theme['--screen-medium']}) {
+    width: 32rem;
+
     i {
       left: 29rem;
-    }
-
-    input {
-      width: 32rem;
     }
   }
 `;
