@@ -85,6 +85,8 @@ export default styled(ContactCard)`
   animation-name: fade;
   animation-duration: 0.5s;
 
+  z-index: 101;
+
   ${Header} {
     ${HeaderImage} {
       border-bottom: 1px solid ${props => props.theme['--color-primary']};

@@ -91,6 +91,7 @@ export default styled(ContactDetails)`
   position: fixed;
   top: 2.5rem;
   width: 100%;
+  z-index: 101;
   //
   ${Header} {
     position: absolute;
