@@ -2,7 +2,7 @@ import React from 'react';
 import { render, cleanup, waitForElement } from 'react-testing-library';
 
 import ContactDetails from '../ContactDetails';
-import withProvider from '../../testUtils/hocs';
+import withProvider from '../../../utils/hocs';
 
 import Contact from '../../../services/contacts';
 
