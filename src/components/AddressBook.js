@@ -8,6 +8,7 @@ import Layout from './Common/Layout';
 import StatusBar from './Common/StatusBar';
 
 import Contacts from '../services/contacts';
+import ListIndex from './ContactList/ListIndex';
 
 const getLast = arr => arr[arr.length - 1];
 const getInitial = contact => contact.name.first.slice(0, 1);
@@ -54,12 +55,26 @@ class AddressBook extends Layout {
       }, []);
   }
 
+  getHeaderElements = () =>
+    Array.from(document.querySelectorAll('div[data-header]')).map(element => ({
+      header: element.innerText,
+      top: element.parentElement.offsetTop - 60,
+    }));
+
+  handleSelectHeader = e => {
+    const { innerText: target } = e.target;
+    const headerElements = this.getHeaderElements();
+    const { top } = headerElements.find(({ header }) => header === target);
+    window.scrollTo({ top, behavior: 'smooth' });
+  };
+
   updateFilter = e => this.setState({ filter: e.target.value });
 
   render() {
     const { className } = this.props;
     const { filter } = this.state;
-    const contacts = this.getFilteredList();
+    const listItems = this.getFilteredList();
+    const headers = listItems.filter(item => item.header);
     const element = super.render();
 
     if (!element) {
@@ -70,7 +85,8 @@ class AddressBook extends Layout {
       <main className={className}>
         <StatusBar />
         <SearchBar value={filter} onChange={this.updateFilter} />
-        <ContactList items={contacts} />
+        <ListIndex items={headers} handleSelect={this.handleSelectHeader} />
+        <ContactList items={listItems} />
         {element}
       </main>
     );

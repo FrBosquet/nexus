@@ -1,6 +1,6 @@
 import React from 'react';
-import Router from '../Common/Router';
-import Theme from '../Theme';
+import Router from '../components/Common/Router';
+import Theme from '../components/Theme';
 
 const withProvider = Component => props => (
   <Router>

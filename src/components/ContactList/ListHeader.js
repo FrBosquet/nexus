@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const ListHeader = ({ className, header }) => (
-  <div className={className}>
+  <div className={className} data-header={header}>
     <span>{header}</span>
   </div>
 );
