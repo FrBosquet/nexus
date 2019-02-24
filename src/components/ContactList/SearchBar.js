@@ -6,7 +6,7 @@ import { fromTheme } from '../../utils/styled';
 
 const SearchBar = ({ className, value, onChange }) => (
   <section className={className}>
-    <input type="text" value={value} onChange={onChange} />
+    <input data-testid="input" type="text" value={value} onChange={onChange} />
     <Icon>search</Icon>
   </section>
 );

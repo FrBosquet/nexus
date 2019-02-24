@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Address Book renders by default 1`] = `
+<main
+  class="sc-cSHVUG gkYkdp"
+>
+  <header
+    class="sc-VigVT jGvsuI"
+  >
+    <i
+      class="sc-gZMcBi giNnHm material-icons"
+    >
+      signal_cellular_alt
+    </i>
+    movistar
+    <i
+      class="sc-gZMcBi giNnHm material-icons"
+    >
+      battery_full
+    </i>
+  </header>
+  <section
+    class="sc-gqjmRU cWEcTv"
+  >
+    <input
+      data-testid="input"
+      type="text"
+      value=""
+    />
+    <i
+      class="sc-gZMcBi giNnHm material-icons"
+    >
+      search
+    </i>
+  </section>
+  <ul
+    class="sc-iwsKbI jHhKfw sc-dnqmqq bDsesi"
+  />
+  <div
+    class="sc-bdVaJa ejXJzW"
+  />
+</main>
+`;
