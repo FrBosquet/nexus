@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import RoundButton from '../Common/RoundButton';
 
 import CardSection from './CardSection';
+import CardHeader from './CardHeader';
+import CardOptions from './CardOptions';
 import { fromTheme } from '../../utils/styled';
 
-const Header = styled('div')``;
-const HeaderImage = styled('img')``;
-const HeaderTitle = styled('h1')``;
-const SectionItem = styled('div')``;
 const SectionTitle = styled('h4')``;
 const SectionSubtitle = styled('h5')``;
 
@@ -20,38 +19,35 @@ const ContactCard = ({
   cell,
   email,
   location: { street, postcode, city },
+  handleEdit,
 }) => (
   <article className={className}>
-    <Header>
-      <HeaderTitle>{`${first} ${last}`}</HeaderTitle>
-      <HeaderImage src={picture} />
-    </Header>
+    <CardHeader name={`${first} ${last}`} picture={picture} />
     <CardSection icon="phone">
       {cell && (
-        <SectionItem>
+        <Fragment>
           <SectionTitle>{cell}</SectionTitle>
           <SectionSubtitle>Cell</SectionSubtitle>
-        </SectionItem>
+        </Fragment>
       )}
       {phone && (
-        <SectionItem>
+        <Fragment>
           <SectionTitle>{phone}</SectionTitle>
           <SectionSubtitle>Home</SectionSubtitle>
-        </SectionItem>
+        </Fragment>
       )}
     </CardSection>
     <CardSection icon="email">
-      <SectionItem>
-        <SectionTitle>{email}</SectionTitle>
-        <SectionSubtitle>Personal</SectionSubtitle>
-      </SectionItem>
+      <SectionTitle>{email}</SectionTitle>
+      <SectionSubtitle>Personal</SectionSubtitle>
     </CardSection>
     <CardSection icon="home">
-      <SectionItem>
-        <SectionTitle>{`${street}, ${postcode} ${city}`}</SectionTitle>
-        <SectionSubtitle>Home</SectionSubtitle>
-      </SectionItem>
+      <SectionTitle>{`${street}, ${postcode} ${city}`}</SectionTitle>
+      <SectionSubtitle>Home</SectionSubtitle>
     </CardSection>
+    <CardOptions>
+      <RoundButton onClick={handleEdit} icon="edit" />
+    </CardOptions>
   </article>
 );
 
@@ -72,6 +68,7 @@ ContactCard.propTypes = {
     postcode: PropTypes.number,
     city: PropTypes.string,
   }).isRequired,
+  handleEdit: PropTypes.func.isRequired,
 };
 
 ContactCard.defaultProps = {
@@ -87,39 +84,6 @@ export default styled(ContactCard)`
   animation-duration: 0.5s;
 
   z-index: 101;
-
-  ${Header} {
-    ${HeaderImage} {
-      border-bottom: 1px solid ${fromTheme('--color-primary')};
-      height: 32rem;
-      object-fit: cover;
-      width: 100%;
-    }
-
-    ${HeaderTitle} {
-      color: white;
-      padding: 1.5rem;
-      position: absolute;
-      text-shadow: 1px 1px black;
-      margin-top: 26rem;
-    }
-  }
-
-  ${CardSection} {
-    ${SectionTitle} {
-      color: ${fromTheme('--color-primary')};
-      text-align: right;
-    }
-
-    ${SectionSubtitle} {
-      color: ${fromTheme('--color-secondary')};
-      text-align: right;
-    }
-
-    &:not(:last-child) {
-      border-bottom: 1px solid ${fromTheme('--color-secondary')};
-    }
-  }
 
   @keyframes fade {
     from {
@@ -138,15 +102,5 @@ export default styled(ContactCard)`
     box-shadow: 0px 0px 50px 0px ${fromTheme('--color-dark')};
     margin: auto;
     width: 46rem;
-
-    ${Header} {
-      ${HeaderImage} {
-        height: 15rem;
-      }
-
-      ${HeaderTitle} {
-        margin-top: 10rem;
-      }
-    }
   }
 `;

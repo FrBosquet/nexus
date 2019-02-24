@@ -8,6 +8,7 @@ import Link from '../Common/Link';
 import Spinner from '../Common/Spinner';
 
 import ContactCard from './ContactCard';
+import ContactEditor from './ContactEditor';
 
 import Contacts from '../../services/contacts';
 import { fromTheme } from '../../utils/styled';
@@ -31,6 +32,8 @@ class ContactDetails extends Component {
 
   state = {
     contact: null,
+    editing: false,
+    saving: false,
   };
 
   componentDidMount() {
@@ -57,15 +60,74 @@ class ContactDetails extends Component {
     if (currentId !== prevId) this.refreshContact(currentId);
   }
 
+  renderChild = () => {
+    const { contact, editing, saving } = this.state;
+
+    if (!contact || saving)
+      return (
+        <Container>
+          <Spinner />
+        </Container>
+      );
+
+    if (editing)
+      return (
+        <ContactEditor
+          {...contact}
+          handleClose={this.stopEditing}
+          handleSave={this.handleSave}
+        />
+      );
+
+    return <ContactCard {...contact} handleEdit={this.startEditing} />;
+  };
+
+  handleSave = async ({
+    firstName,
+    lastName,
+    picture,
+    cell,
+    phone,
+    email,
+    street,
+    postcode,
+    city,
+  }) => {
+    this.setState({ saving: true });
+    const { contact } = this.state;
+    const { id } = contact;
+    const updatedContact = {
+      ...contact,
+      name: {
+        first: firstName,
+        last: lastName,
+      },
+      picture: {
+        ...contact.picture,
+        large: picture,
+      },
+      phone,
+      cell,
+      email,
+      location: { street, postcode: parseInt(postcode, 10), city },
+    };
+
+    await Contacts.update(id, updatedContact);
+    await this.refreshContact(id);
+  };
+
+  startEditing = () => this.setState({ editing: true });
+
+  stopEditing = () => this.setState({ editing: false });
+
   async refreshContact(id) {
     this.setState({ contact: null });
     const contact = await Contacts.read(id);
-    this.setState({ contact });
+    this.setState({ contact, saving: false });
   }
 
   render() {
     const { className } = this.props;
-    const { contact } = this.state;
 
     return (
       <article className={className}>
@@ -74,13 +136,7 @@ class ContactDetails extends Component {
             <Icon>arrow_back_ios</Icon>
           </Link>
         </Header>
-        {contact ? (
-          <ContactCard {...contact} />
-        ) : (
-          <Container>
-            <Spinner />
-          </Container>
-        )}
+        {this.renderChild()}
       </article>
     );
   }
@@ -90,7 +146,7 @@ export default styled(ContactDetails)`
   background: ${fromTheme('--color-light')};
   height: calc(100% - 2.5rem);
   position: fixed;
-  top: 2.5rem;
+  top: 0;
   width: 100%;
   z-index: 101;
   //
@@ -106,6 +162,8 @@ export default styled(ContactDetails)`
 
     ${Icon} {
       height: 5rem;
+      color: ${fromTheme('--color-light')};
+      text-shadow: 1px 1px black;
       left: 0;
       line-height: 5rem;
       position: absolute;
@@ -127,6 +185,11 @@ export default styled(ContactDetails)`
 
     ${Header} {
       position: relative;
+    }
+
+    ${Header} ${Icon} {
+      text-shadow: none;
+      color: black;
     }
   }
 `;

@@ -43,4 +43,18 @@ export default styled(CardSection)`
     flex-grow: 1;
     padding-right: 2rem;
   }
+
+  h4 {
+    color: ${fromTheme('--color-primary')};
+    text-align: right;
+  }
+
+  h5 {
+    color: ${fromTheme('--color-secondary')};
+    text-align: right;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid ${fromTheme('--color-secondary')};
+  }
 `;
