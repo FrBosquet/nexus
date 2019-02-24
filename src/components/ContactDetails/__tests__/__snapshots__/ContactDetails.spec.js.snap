@@ -2,10 +2,10 @@
 
 exports[`Contact details renders by default 1`] = `
 <article
-  class="sc-gqjmRU LtDLw"
+  class="sc-jzJRlG cfNkLn"
 >
   <header
-    class="sc-gZMcBi giNnHm"
+    class="sc-fjdhpX nsimD"
   >
     <a
       class=""
@@ -19,7 +19,7 @@ exports[`Contact details renders by default 1`] = `
     </a>
   </header>
   <section
-    class="sc-iwsKbI jQhHGA"
+    class="sc-jTzLTM eCMmlJ"
   >
     <svg
       class="lds-infinity"

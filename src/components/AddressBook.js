@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import ContactList from './ContactList';
 import SearchBar from './ContactList/SearchBar';
 import Layout from './Common/Layout';
-import StatusBar from './Common/StatusBar';
 
 import Contacts from '../services/contacts';
 import ListIndex from './ContactList/ListIndex';
@@ -83,7 +82,6 @@ class AddressBook extends Layout {
 
     return (
       <main className={className}>
-        <StatusBar />
         <SearchBar value={filter} onChange={this.updateFilter} />
         <ListIndex items={headers} handleSelect={this.handleSelectHeader} />
         <ContactList items={listItems} />
@@ -94,5 +92,5 @@ class AddressBook extends Layout {
 }
 
 export default styled(AddressBook)`
-  padding-top: 5rem;
+  padding-top: 2.5rem;
 `;

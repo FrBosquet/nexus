@@ -18,10 +18,10 @@ export default styled(Empty)`
   @media (${fromTheme('--screen-medium')}) {
     background: ${fromTheme('--color-light')};
     border-left: 1px solid ${props => rgba(props.theme['--color-dark'], 0.1)};
-    height: calc(100% - 2.5rem);
+    height: 100vh;
     left: 32rem;
     position: fixed;
-    top: 2.5rem;
+    top: 0;
     width: calc(100% - 32rem);
   }
 `;

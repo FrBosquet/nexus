@@ -2,25 +2,10 @@
 
 exports[`Address Book renders by default 1`] = `
 <main
-  class="sc-cSHVUG gkYkdp"
+  class="sc-cSHVUG cJnglI"
 >
-  <header
-    class="sc-VigVT jGvsuI"
-  >
-    <i
-      class="sc-gZMcBi giNnHm material-icons"
-    >
-      signal_cellular_alt
-    </i>
-    movistar
-    <i
-      class="sc-gZMcBi giNnHm material-icons"
-    >
-      battery_full
-    </i>
-  </header>
   <section
-    class="sc-gqjmRU cWEcTv"
+    class="sc-gqjmRU jPNVfR"
   >
     <input
       data-testid="input"
@@ -37,7 +22,7 @@ exports[`Address Book renders by default 1`] = `
     class="sc-iwsKbI jHhKfw sc-dnqmqq bDsesi"
   />
   <div
-    class="sc-bdVaJa ejXJzW"
+    class="sc-bdVaJa etPSam"
   />
 </main>
 `;

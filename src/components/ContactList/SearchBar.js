@@ -23,7 +23,7 @@ SearchBar.defaultProps = {
 
 export default styled(SearchBar)`
   position: fixed;
-  top: 2.5rem;
+  top: 0;
   width: 100%;
   z-index: 100;
 
