@@ -70,15 +70,15 @@ describe('Address Book', () => {
   it('renders a header for each initial letter', async () => {
     const { getByText } = render(<Enhanced />);
     await waitForElement(() => getByText('Marta Fonda'));
-    expect(getByText('A')).toBeDefined();
-    expect(getByText('M')).toBeDefined();
+    expect(getByText('a')).toBeDefined();
+    expect(getByText('m')).toBeDefined();
   });
 
   it('scrolls to a heading when clicking on it', async () => {
     const { getByText } = render(<Enhanced />);
     await waitForElement(() => getByText('Marta Fonda'));
     const spy = jest.spyOn(global.window, 'scrollTo');
-    getByText('A').click();
+    getByText('a').click();
     expect(spy).toHaveBeenCalled();
   });
 
