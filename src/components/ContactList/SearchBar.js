@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from '../Common/Icon';
+import { fromTheme } from '../../utils/styled';
 
 const SearchBar = ({ className, value, onChange }) => (
   <section className={className}>
@@ -27,7 +28,7 @@ export default styled(SearchBar)`
   z-index: 100;
 
   i {
-    color: ${props => props.theme['--color-main']};
+    color: ${fromTheme('--color-main')};
     position: absolute;
     right: 1rem;
   }
@@ -36,15 +37,15 @@ export default styled(SearchBar)`
     width: 100%;
     padding: 0.5rem;
     border: none;
-    border-bottom: 1px solid ${props => props.theme['--color-secondary']};
+    border-bottom: 1px solid ${fromTheme('--color-secondary')};
 
     &:focus {
       outline: none;
-      border-bottom: 1px solid ${props => props.theme['--color-main']};
+      border-bottom: 1px solid ${fromTheme('--color-main')};
     }
   }
 
-  @media (${props => props.theme['--screen-medium']}) {
+  @media (${fromTheme('--screen-medium')}) {
     width: 32rem;
 
     i {

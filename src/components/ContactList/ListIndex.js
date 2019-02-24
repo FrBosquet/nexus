@@ -69,7 +69,7 @@ export default styled(ListIndex)`
     }
   }
 
-  @media (${props => props.theme['--screen-medium']}) {
+  @media (${fromTheme('--screen-medium')}) {
     width: 32rem;
   }
 `;

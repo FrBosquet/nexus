@@ -10,6 +10,7 @@ import Spinner from '../Common/Spinner';
 import ContactCard from './ContactCard';
 
 import Contacts from '../../services/contacts';
+import { fromTheme } from '../../utils/styled';
 
 const Container = styled('section')``;
 const Header = styled('header')``;
@@ -86,7 +87,7 @@ class ContactDetails extends Component {
 }
 
 export default styled(ContactDetails)`
-  background: ${props => props.theme['--color-light']};
+  background: ${fromTheme('--color-light')};
   height: calc(100% - 2.5rem);
   position: fixed;
   top: 2.5rem;
@@ -96,7 +97,7 @@ export default styled(ContactDetails)`
   ${Header} {
     position: absolute;
 
-    ${props => props.theme['--font-extra-large']};
+    ${fromTheme('--font-extra-large')};
     align-items: center;
     display: flex;
     height: 5rem;
@@ -119,7 +120,7 @@ export default styled(ContactDetails)`
     justify-content: center;
   }
 
-  @media (${props => props.theme['--screen-medium']}) {
+  @media (${fromTheme('--screen-medium')}) {
     border-left: 1px solid ${props => rgba(props.theme['--color-dark'], 0.1)};
     left: 32rem;
     width: calc(100% - 32rem);

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import Avatar from './Avatar';
 import Link from '../Common/Link';
+import { fromTheme } from '../../utils/styled';
 
 const Container = styled('div')``;
 const Name = styled('span')``;
@@ -67,13 +68,13 @@ export default styled(Contact)`
   }
 
   ${Name} {
-    ${props => props.theme['--font-large']};
-    font-weight: ${props => props.theme['--font-weight-demi']};
+    ${fromTheme('--font-large')};
+    font-weight: ${fromTheme('--font-weight-demi')};
   }
 
   ${Phone} {
-    ${props => props.theme['--font-small']};
-    color: ${props => props.theme['--font-opacity-40']};
-    font-weight: ${props => props.theme['--font-weight-demi']};
+    ${fromTheme('--font-small')};
+    color: ${fromTheme('--font-opacity-40')};
+    font-weight: ${fromTheme('--font-weight-demi')};
   }
 `;

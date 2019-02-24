@@ -10,8 +10,8 @@ import StatusBar from './Common/StatusBar';
 import Contacts from '../services/contacts';
 import ListIndex from './ContactList/ListIndex';
 
-const getLast = arr => arr[arr.length - 1];
-const getInitial = contact => contact.name.first.slice(0, 1);
+import { getInitial } from '../utils/string';
+import { getLast } from '../utils/array';
 
 class AddressBook extends Layout {
   static propTypes = {

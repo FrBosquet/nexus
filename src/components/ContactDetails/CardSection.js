@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Icon from '../Common/Icon';
+import { fromTheme } from '../../utils/styled';
 
 const SectionContent = styled('div')``;
 
@@ -35,7 +36,7 @@ export default styled(CardSection)`
 
   ${Icon} {
     margin: 0 2rem;
-    color: ${props => props.theme['--color-primary']};
+    color: ${fromTheme('--color-primary')};
   }
 
   ${SectionContent} {

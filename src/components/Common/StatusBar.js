@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Icon from './Icon';
+import { fromTheme } from '../../utils/styled';
 
 const StatusBar = ({ className }) => (
   <header className={className}>
@@ -23,7 +24,7 @@ StatusBar.propTypes = {
 
 export default styled(StatusBar)`
   background-color: ${props => rgba(props.theme['--color-main'], 0.9)};
-  color: ${props => props.theme['--color-light']};
+  color: ${fromTheme('--color-light')};
   height: 2.5rem;
   padding: 0 0.4rem;
   position: fixed;
@@ -32,7 +33,7 @@ export default styled(StatusBar)`
   z-index: 100;
 
   ${Icon} {
-    color: ${props => props.theme['--color-light']};
+    color: ${fromTheme('--color-light')};
     margin-right: 0.4rem;
     vertical-align: bottom;
 

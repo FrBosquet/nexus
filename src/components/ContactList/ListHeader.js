@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { fromTheme } from '../../utils/styled';
 
 const ListHeader = ({ className, header }) => (
   <div className={className} data-header={header}>
@@ -21,7 +22,7 @@ export default styled(ListHeader)`
   position: absolute;
 
   span {
-    background: ${props => props.theme['--color-main']};
+    background: ${fromTheme('--color-main')};
     border-radius: 0 50% 50% 0;
     color: white;
     display: block;

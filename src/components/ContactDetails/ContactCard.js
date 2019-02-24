@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import CardSection from './CardSection';
+import { fromTheme } from '../../utils/styled';
 
 const Header = styled('div')``;
 const HeaderImage = styled('img')``;
@@ -89,7 +90,7 @@ export default styled(ContactCard)`
 
   ${Header} {
     ${HeaderImage} {
-      border-bottom: 1px solid ${props => props.theme['--color-primary']};
+      border-bottom: 1px solid ${fromTheme('--color-primary')};
       height: 32rem;
       object-fit: cover;
       width: 100%;
@@ -106,17 +107,17 @@ export default styled(ContactCard)`
 
   ${CardSection} {
     ${SectionTitle} {
-      color: ${props => props.theme['--color-primary']};
+      color: ${fromTheme('--color-primary')};
       text-align: right;
     }
 
     ${SectionSubtitle} {
-      color: ${props => props.theme['--color-secondary']};
+      color: ${fromTheme('--color-secondary')};
       text-align: right;
     }
 
     &:not(:last-child) {
-      border-bottom: 1px solid ${props => props.theme['--color-secondary']};
+      border-bottom: 1px solid ${fromTheme('--color-secondary')};
     }
   }
 
@@ -132,9 +133,9 @@ export default styled(ContactCard)`
     }
   }
 
-  @media (${props => props.theme['--screen-medium']}) {
-    border: 1px solid ${props => props.theme['--color-primary']};
-    box-shadow: 0px 0px 50px 0px ${props => props.theme['--color-dark']};
+  @media (${fromTheme('--screen-medium')}) {
+    border: 1px solid ${fromTheme('--color-primary')};
+    box-shadow: 0px 0px 50px 0px ${fromTheme('--color-dark')};
     margin: auto;
     width: 46rem;
 
