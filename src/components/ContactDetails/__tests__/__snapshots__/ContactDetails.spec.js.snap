@@ -1,5 +1,382 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Contact details contact editor cancels edition: detail 1`] = `
+<div>
+  <article
+    class="sc-jzJRlG cfNkLn"
+  >
+    <header
+      class="sc-fjdhpX nsimD"
+    >
+      <a
+        class=""
+        href="/"
+      >
+        <i
+          class="sc-bdVaJa bDWFJH material-icons"
+        >
+          arrow_back_ios
+        </i>
+      </a>
+    </header>
+    <article
+      class="sc-iwsKbI bqZdYh"
+    >
+      <div
+        class="sc-bZQynM daovDU"
+      >
+        <h1
+          class="sc-EHOje jvzENE"
+        >
+          Fran Bosquet
+        </h1>
+        <img
+          class="sc-ifAKCX cFlEyZ"
+          src="url"
+        />
+      </div>
+      <section
+        class="sc-bxivhb iMGPqq"
+      >
+        <i
+          class="sc-bdVaJa bDWFJH material-icons"
+        >
+          phone
+        </i>
+        <div
+          class="sc-htpNat KtFsv"
+        >
+          <h4
+            class="sc-htoDjs bZzhDu"
+          >
+            555-555-555
+          </h4>
+          <h5
+            class="sc-dnqmqq bDsesi"
+          >
+            Cell
+          </h5>
+          
+        </div>
+      </section>
+      <section
+        class="sc-bxivhb iMGPqq"
+      >
+        <i
+          class="sc-bdVaJa bDWFJH material-icons"
+        >
+          email
+        </i>
+        <div
+          class="sc-htpNat KtFsv"
+        >
+          <h4
+            class="sc-htoDjs bZzhDu"
+          />
+          <h5
+            class="sc-dnqmqq bDsesi"
+          >
+            Personal
+          </h5>
+        </div>
+      </section>
+      <section
+        class="sc-bxivhb iMGPqq"
+      >
+        <i
+          class="sc-bdVaJa bDWFJH material-icons"
+        >
+          home
+        </i>
+        <div
+          class="sc-htpNat KtFsv"
+        >
+          <h4
+            class="sc-htoDjs bZzhDu"
+          >
+            Fake Street 123, undefined undefined
+          </h4>
+          <h5
+            class="sc-dnqmqq bDsesi"
+          >
+            Home
+          </h5>
+        </div>
+      </section>
+      <div
+        class="sc-gzVnrw hFoRxL"
+      >
+        <button
+          class="sc-bwzfXH fUeTHc"
+          type="button"
+        >
+          <i
+            class="sc-bdVaJa bDWFJH material-icons"
+          >
+            edit
+          </i>
+        </button>
+      </div>
+    </article>
+  </article>
+</div>
+`;
+
+exports[`Contact details contact editor renders contact editor: editor 1`] = `
+<div>
+  <article
+    class="sc-jzJRlG cfNkLn"
+  >
+    <header
+      class="sc-fjdhpX nsimD"
+    >
+      <a
+        class=""
+        href="/"
+      >
+        <i
+          class="sc-bdVaJa bDWFJH material-icons"
+        >
+          arrow_back_ios
+        </i>
+      </a>
+    </header>
+    <article
+      class="sc-VigVT juUpIN"
+    >
+      <div
+        class="sc-bZQynM daovDU"
+      >
+        <h1
+          class="sc-EHOje jvzENE"
+        >
+          Fran Bosquet
+        </h1>
+        <img
+          class="sc-ifAKCX cFlEyZ"
+          src="url"
+        />
+      </div>
+      <section
+        class="sc-bxivhb iMGPqq"
+      >
+        <i
+          class="sc-bdVaJa bDWFJH material-icons"
+        >
+          person
+        </i>
+        <div
+          class="sc-htpNat KtFsv"
+        >
+          <input
+            class="sc-gqjmRU hnZXkc"
+            value="Fran"
+          />
+          <h5
+            class="sc-gZMcBi giNnHm"
+          >
+            First name
+          </h5>
+          <input
+            class="sc-gqjmRU hnZXkc"
+            value="Bosquet"
+          />
+          <h5
+            class="sc-gZMcBi giNnHm"
+          >
+            Last name
+          </h5>
+          <input
+            class="sc-gqjmRU hnZXkc"
+            value="url"
+          />
+          <h5
+            class="sc-gZMcBi giNnHm"
+          >
+            Picture url
+          </h5>
+        </div>
+      </section>
+      <section
+        class="sc-bxivhb iMGPqq"
+      >
+        <i
+          class="sc-bdVaJa bDWFJH material-icons"
+        >
+          phone
+        </i>
+        <div
+          class="sc-htpNat KtFsv"
+        >
+          <input
+            class="sc-gqjmRU hnZXkc"
+            value="555-555-555"
+          />
+          <h5
+            class="sc-gZMcBi giNnHm"
+          >
+            Cell
+          </h5>
+          <input
+            class="sc-gqjmRU hnZXkc"
+            value=""
+          />
+          <h5
+            class="sc-gZMcBi giNnHm"
+          >
+            Phone
+          </h5>
+        </div>
+      </section>
+      <section
+        class="sc-bxivhb iMGPqq"
+      >
+        <i
+          class="sc-bdVaJa bDWFJH material-icons"
+        >
+          email
+        </i>
+        <div
+          class="sc-htpNat KtFsv"
+        >
+          <input
+            class="sc-gqjmRU hnZXkc"
+            value=""
+          />
+          <h5
+            class="sc-gZMcBi giNnHm"
+          >
+            email
+          </h5>
+        </div>
+      </section>
+      <section
+        class="sc-bxivhb iMGPqq"
+      >
+        <i
+          class="sc-bdVaJa bDWFJH material-icons"
+        >
+          home
+        </i>
+        <div
+          class="sc-htpNat KtFsv"
+        >
+          <input
+            class="sc-gqjmRU hnZXkc"
+            value="Fake Street 123"
+          />
+          <h5
+            class="sc-gZMcBi giNnHm"
+          >
+            Street
+          </h5>
+          <input
+            class="sc-gqjmRU hnZXkc"
+            type="number"
+            value=""
+          />
+          <h5
+            class="sc-gZMcBi giNnHm"
+          >
+            Postcode
+          </h5>
+          <input
+            class="sc-gqjmRU hnZXkc"
+            value=""
+          />
+          <h5
+            class="sc-gZMcBi giNnHm"
+          >
+            City
+          </h5>
+        </div>
+      </section>
+      <div
+        class="sc-gzVnrw hFoRxL"
+      >
+        <button
+          class="sc-bwzfXH fUeTHc"
+          type="button"
+        >
+          <i
+            class="sc-bdVaJa bDWFJH material-icons"
+          >
+            save
+          </i>
+        </button>
+        <button
+          class="sc-bwzfXH fUeTHc"
+          type="button"
+        >
+          <i
+            class="sc-bdVaJa bDWFJH material-icons"
+          >
+            close
+          </i>
+        </button>
+      </div>
+    </article>
+  </article>
+</div>
+`;
+
+exports[`Contact details contact editor updates a contact on save: detail 1`] = `
+<div>
+  <article
+    class="sc-jzJRlG cfNkLn"
+  >
+    <header
+      class="sc-fjdhpX nsimD"
+    >
+      <a
+        class=""
+        href="/"
+      >
+        <i
+          class="sc-bdVaJa bDWFJH material-icons"
+        >
+          arrow_back_ios
+        </i>
+      </a>
+    </header>
+    <section
+      class="sc-jTzLTM eCMmlJ"
+    >
+      <svg
+        class="lds-infinity"
+        data-testid="spinner"
+        height="100px"
+        preserveAspectRatio="xMidYMid"
+        viewBox="0 0 100 100"
+        width="100px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M24.3,30C11.4,30,5,43.3,5,50s6.4,20,19.3,20c19.3,0,32.1-40,51.4-40 C88.6,30,95,43.3,95,50s-6.4,20-19.3,20C56.4,70,43.6,30,24.3,30z"
+          fill="none"
+          ng-attr-stroke="{{config.stroke}}"
+          ng-attr-stroke-dasharray="{{config.dasharray}}"
+          ng-attr-stroke-width="{{config.width}}"
+          stroke="#0084ff"
+          stroke-dasharray="5.131778564453125 5.131778564453125"
+          stroke-width="8"
+        >
+          <animate
+            attributeName="stroke-dashoffset"
+            begin="0s"
+            calcMode="linear"
+            dur="7.8"
+            keyTimes="0;1"
+            repeatCount="indefinite"
+            values="0;256.58892822265625"
+          />
+        </path>
+      </svg>
+    </section>
+  </article>
+</div>
+`;
+
 exports[`Contact details renders by default 1`] = `
 <article
   class="sc-jzJRlG cfNkLn"

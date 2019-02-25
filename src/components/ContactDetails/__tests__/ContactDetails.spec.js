@@ -10,6 +10,12 @@ jest.mock('../../../services/contacts');
 
 describe('Contact details', () => {
   const props = { match: { params: { id: 'id1' } } };
+  const response = {
+    name: { first: 'Fran', last: 'Bosquet' },
+    picture: { large: 'url' },
+    cell: '555-555-555',
+    location: { street: 'Fake Street 123' },
+  };
   const Enhanced = withProvider(ContactDetails);
 
   beforeEach(() => {
@@ -53,14 +59,42 @@ describe('Contact details', () => {
   });
 
   it('renders a ContactCard with the provided contact data', async () => {
-    Contact.read.mockReturnValueOnce({
-      name: { first: 'Fran', last: 'Bosquet' },
-      picture: { large: 'url' },
-      cell: '555-555-555',
-      location: { street: 'Fake Street 123' },
-    });
+    Contact.read.mockReturnValueOnce(response);
     const { getByText } = render(<Enhanced {...props} />);
     await waitForElement(() => getByText('Fran Bosquet'));
     expect(getByText('Fran Bosquet')).toBeDefined();
+  });
+
+  describe('contact editor', () => {
+    beforeEach(() => {
+      Contact.read.mockReturnValueOnce(response);
+    });
+
+    it('renders contact editor', async () => {
+      const { getByText, container } = render(<Enhanced {...props} />);
+      await waitForElement(() => getByText('Fran Bosquet'));
+      getByText('edit').click();
+      expect(container).toMatchSnapshot('editor');
+      expect(getByText('save')).toBeDefined();
+      expect(getByText('close')).toBeDefined();
+    });
+
+    it('updates a contact on save', async () => {
+      const { getByText, container } = render(<Enhanced {...props} />);
+      await waitForElement(() => getByText('Fran Bosquet'));
+      getByText('edit').click();
+      getByText('save').click();
+      expect(Contact.update).toBeCalled();
+      expect(container).toMatchSnapshot('detail');
+    });
+
+    it('cancels edition', async () => {
+      const { getByText, container } = render(<Enhanced {...props} />);
+      await waitForElement(() => getByText('Fran Bosquet'));
+      getByText('edit').click();
+      getByText('close').click();
+      expect(getByText('edit')).toBeDefined();
+      expect(container).toMatchSnapshot('detail');
+    });
   });
 });
